@@ -84,7 +84,7 @@
         "max_format": 2147483647
       },
       {
-        "directory": "v8.10.31-1.20.2-Classic_Reimagined_8",
+        "directory": "v8.10.31-Classic_Reimagined_8",
         "formats": [
           18,
           2147483647
@@ -93,7 +93,7 @@
         "max_format": 2147483647
       },
       {
-        "directory": "v8.10.32-1.20.3-Classic_Reimagined_8",
+        "directory": "v8.10.32-Classic_Reimagined_8",
         "formats": [
           22,
           2147483647
@@ -102,7 +102,7 @@
         "max_format": 2147483647
       },
       {
-        "directory": "v10.0.01-1.20.5-Classic_Reimagined_10",
+        "directory": "v10.0.1-Classic_Reimagined_10",
         "formats": [
           32,
           2147483647
@@ -111,7 +111,7 @@
         "max_format": 2147483647
       },
       {
-        "directory": "v10.0.02-1.21.2-Classic_Reimagined_10s",
+        "directory": "v10.0.2-Classic_Reimagined_10s",
         "formats": [
           42,
           2147483647
@@ -120,7 +120,7 @@
         "max_format": 2147483647
       },
       {
-        "directory": "v10.0.03-1.21.4-Classic_Reimagined_10_SE",
+        "directory": "v10.0.3-Classic_Reimagined_10_SE",
         "formats": [
           46,
           2147483647
@@ -129,7 +129,7 @@
         "max_format": 2147483647
       },
       {
-        "directory": "v10.0.04-1.21.5-Classic_Reimagined_10_SE_2",
+        "directory": "v10.0.4-Classic_Reimagined_10_SE_2",
         "formats": [
           55,
           2147483647
@@ -138,7 +138,7 @@
         "max_format": 2147483647
       },
       {
-        "directory": "v10.0.07-1.21.6-Classic_Reimagined_10_SE_2",
+        "directory": "v10.0.7-Classic_Reimagined_10_SE_2",
         "formats": [
           63,
           2147483647
@@ -147,7 +147,7 @@
         "max_format": 2147483647
       },
       {
-        "directory": "v10.0.09-1.21.9-Classic_Reimagined_10_SE_2",
+        "directory": "v10.0.9-Classic_Reimagined_10_SE_2",
         "formats": [
           65,
           2147483647
@@ -156,7 +156,7 @@
         "max_format": 2147483647
       },
       {
-        "directory": "v10.0.10-1.21.11-Classic_Reimagined_10_SE_2",
+        "directory": "v10.0.10-Classic_Reimagined_10_SE_2",
         "formats": [
           75,
           2147483647
