@@ -48,6 +48,15 @@
         "max_format": 55
       },
       {
+        "directory": "1.21.6_classic_fog",
+        "formats": [
+          63,
+          2147483647
+        ],
+        "min_format": 63,
+        "max_format": 2147483647
+      },
+      {
         "directory": "1.21.6_shaders",
         "formats": [
           63,
