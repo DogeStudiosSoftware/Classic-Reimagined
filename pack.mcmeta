@@ -48,7 +48,7 @@
         "max_format": 55
       },
       {
-        "directory": "1.21.6_classic_fog",
+        "directory": "1.21.6_environmental_fog",
         "formats": [
           63,
           2147483647
