@@ -10,7 +10,7 @@ void main() {
     vec4 color = vertexColor;
     color.a *= 1.0f - max(
         linear_fog_value(vertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd),
-        linear_fog_value(vertexDistance, clamp(FogCloudsEnd / 4.0, min(FogCloudsEnd, FogRenderDistanceStart), FogRenderDistanceStart),
+        linear_fog_value(vertexDistance, clamp(FogCloudsEnd, min(FogCloudsEnd, FogRenderDistanceStart), FogRenderDistanceStart),
         clamp(FogCloudsEnd, min(FogCloudsEnd, FogRenderDistanceEnd), FogRenderDistanceEnd)));
     fragColor = color;
 }
