@@ -4,6 +4,7 @@
 #moj_import <minecraft:fog.glsl>
 #moj_import <minecraft:dynamictransforms.glsl>
 #moj_import <minecraft:projection.glsl>
+#moj_import <minecraft:smooth_lighting.glsl>
 
 in vec3 Position;
 in vec4 Color;
@@ -57,7 +58,7 @@ void main() {
 #endif
 
 #ifndef EMISSIVE
-    lightMapColor = texelFetch(Sampler2, UV2 / 16, 0);
+    lightMapColor = minecraft_sample_lightmap(Sampler2, UV2);
 #endif
 
 #ifndef NO_OVERLAY
