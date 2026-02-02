@@ -3,6 +3,6 @@
     {"id": "#c:is_nether", "required": false},
     {"id": "#forge:is_nether", "required": false}
   ],
-  "fog_radius": 1024,
+  "fog_radius": 64,
   "fog_fade": 0
 }
