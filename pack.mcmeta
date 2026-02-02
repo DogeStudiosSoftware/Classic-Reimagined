@@ -68,19 +68,19 @@
       {
         "directory": "1.21.9_shaders",
         "formats": [
-          65,
+          69,
           69
         ],
-        "min_format": 65,
+        "min_format": 69,
         "max_format": 69
       },
       {
         "directory": "1.21.11_shaders",
         "formats": [
-          70,
+          75,
           75
         ],
-        "min_format": 70,
+        "min_format": 75,
         "max_format": 75
       },
       {
@@ -158,10 +158,10 @@
       {
         "directory": "v10.0.9-Classic_Reimagined_10_SE_2",
         "formats": [
-          65,
+          69,
           2147483647
         ],
-        "min_format": 65,
+        "min_format": 69,
         "max_format": 2147483647
       },
       {
@@ -176,10 +176,10 @@
       {
         "directory": "v10.0.11_1-Classic_Reimagined_10_SE_2.1",
         "formats": [
-          77,
+          76,
           2147483647
         ],
-        "min_format": 77,
+        "min_format": 76,
         "max_format": 2147483647
       }
     ]
