@@ -9,8 +9,7 @@ in float cylindricalVertexDistance;
 out vec4 fragColor;
 
 void main() {
-    fragColor = apply_fog(ColorModulator, sphericalVertexDistance, cylindricalVertexDistance,
-    FogSkyEnd * floor(clamp((FogRenderDistanceEnd / 16) - 2, 0, 1)),
+    fragColor = apply_fog(ColorModulator, sphericalVertexDistance, cylindricalVertexDistance, FogSkyEnd * floor(clamp((FogRenderDistanceEnd / 16) - 2, 0, 1)) / 4,
     FogSkyEnd * floor(clamp((FogRenderDistanceEnd / 16) - 2, 0, 1)),
     FogSkyEnd * floor(clamp((FogRenderDistanceEnd / 16) - 2, 0, 1)),
     FogSkyEnd * floor(clamp((FogRenderDistanceEnd / 16) - 2, 0, 1)),
