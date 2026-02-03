@@ -1,0 +1,10 @@
+{
+  "targets": [
+    {
+      "id": "minecraft:pale_garden",
+      "required": false
+    }
+  ],
+  "fog_radius": "1-(RENDER_DISTANCE/(RENDER_DISTANCE+2))",
+  "fog_fade": 8
+}
