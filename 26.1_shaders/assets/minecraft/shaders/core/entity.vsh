@@ -1,4 +1,4 @@
-#version 330
+#version 460
 
 #moj_import <minecraft:light.glsl>
 #moj_import <minecraft:fog.glsl>
