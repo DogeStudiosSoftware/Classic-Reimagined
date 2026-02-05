@@ -15,11 +15,12 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
 }
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
-    return max(max(max(
-        linear_fog_value(cylindricalVertexDistance, renderDistanceEnd / 4, renderDistanceEnd * (31.0 / 30.0)),
-        linear_fog_value(cylindricalVertexDistance, renderDistanceEnd * (31.0 / 60.0), renderDistanceEnd)),
-        linear_fog_value(cylindricalVertexDistance, renderDistanceStart, renderDistanceEnd)),
-        linear_fog_value(sphericalVertexDistance, environmentalStart, environmentalEnd)
+    return max(max(max(max(
+        linear_fog_value(sphericalVertexDistance, renderDistanceEnd / 4, renderDistanceEnd * (31.0 / 30.0)),
+        linear_fog_value(sphericalVertexDistance, renderDistanceEnd * (31.0 / 60.0), renderDistanceEnd)),
+        linear_fog_value(sphericalVertexDistance, renderDistanceStart, renderDistanceEnd)),
+        linear_fog_value(sphericalVertexDistance, environmentalStart, environmentalEnd)),
+        linear_fog_value(cylindricalVertexDistance, environmentalEnd / 4, environmentalEnd)
     );
 }
 

@@ -19,6 +19,12 @@ const int shape = 0; // 0 = spherical, 1 = cylindrical, 2 = planar, 3 = experime
 // Calculate the distance for fog based on the shape
 // Terrain shape is fog_cylindrical_distance
 float fog_cylindrical_distance(vec3 pos) {
+  float distXZ = length(pos.xz);
+  float distY = abs(pos.y);
+  return max(distXZ, distY);
+}
+
+float fog_spherical_distance(vec3 pos) {
   if (shape == 0) {
     // Spherical fog distance calculation
     return length(pos);
@@ -34,10 +40,6 @@ float fog_cylindrical_distance(vec3 pos) {
           // Experimental fog(Extra)
           return max(abs((ModelViewMat * vec4(pos, 1.0)).z), length(pos.zx));
         }
-}
-
-float fog_spherical_distance(vec3 pos) {
-  return length((ModelViewMat * vec4(pos, 1.0)));
 }
 
 float fog_planar_distance(vec3 pos) {
