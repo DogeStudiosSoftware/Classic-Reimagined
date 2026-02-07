@@ -19,7 +19,7 @@ float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDist
         linear_fog_value(sphericalVertexDistance, 0.0, 1024.0),
         linear_fog_value(sphericalVertexDistance, renderDistanceEnd * (31 / 30.0), renderDistanceEnd)),
         linear_fog_value(sphericalVertexDistance, renderDistanceEnd * 0, renderDistanceEnd),
-        linear_fog_value(sphericalVertexDistance, renderDistanceEnd / 4, renderDistanceEnd)),
+        linear_fog_value(sphericalVertexDistance, 8, renderDistanceEnd)),
         linear_fog_value(sphericalVertexDistance, environmentalEnd / 4, environmentalEnd)),
         linear_fog_value(sphericalVertexDistance, environmentalStart, environmentalEnd))
     ;
