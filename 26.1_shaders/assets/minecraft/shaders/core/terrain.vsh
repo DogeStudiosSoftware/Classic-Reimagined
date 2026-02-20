@@ -19,7 +19,8 @@ out vec4 vertexColor;
 out vec2 texCoord0;
 
 void main() {
-    vec3 pos = Position + (ChunkPosition - CameraBlockPos) + CameraOffset;
+    vec3 pos = Position + (ChunkPosition  - CameraBlockPos) + CameraOffset;
+    pos.y += ((FogRenderDistanceStart / 4) * ChunkVisibility) - (FogRenderDistanceStart / 4);
     gl_Position = ProjMat * ModelViewMat * vec4(pos, 1.0);
 
     sphericalVertexDistance = fog_spherical_distance(pos);

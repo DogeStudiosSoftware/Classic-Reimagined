@@ -23,7 +23,8 @@ vec4 minecraft_sample_lightmap(sampler2D lightMap, ivec2 uv) {
 }
 
 void main() {
-    vec3 pos = Position + (ChunkPosition - CameraBlockPos) + CameraOffset;
+    vec3 pos = Position + (ChunkPosition  - CameraBlockPos) + CameraOffset;
+    pos.y += ((FogRenderDistanceStart / 4) * ChunkVisibility) - (FogRenderDistanceStart / 4);
     gl_Position = ProjMat * ModelViewMat * vec4(pos, 1.0);
 
     sphericalVertexDistance = fog_spherical_distance(pos);
