@@ -1,0 +1,63 @@
+{
+  "overlays": {
+    "entries": [
+      {
+        "formats": [
+          46,
+          2147483647
+        ],
+        "min_format": 46,
+        "max_format": 2147483647,
+        "directory": "mods-1.21.4"
+      },
+      {
+        "formats": [
+          32,
+          55
+        ],
+        "min_format": 32,
+        "max_format": 55,
+        "directory": "sodium-1.21"
+      },
+      {
+        "formats": [
+          63,
+          64
+        ],
+        "min_format": 63,
+        "max_format": 64,
+        "directory": "sodium-1.21.6"
+      },
+      {
+        "formats": [
+          69,
+          69
+        ],
+        "min_format": 69,
+        "max_format": 69,
+        "directory": "sodium-1.21.9"
+      },
+      {
+        "formats": [
+          75,
+          75
+        ],
+        "min_format": 75,
+        "max_format": 75,
+        "directory": "sodium-1.21.11"
+      }
+    ]
+  },
+  "pack": {
+    "supported_formats": {
+      "min_inclusive": 32,
+      "max_inclusive": 2147483647
+    },
+    "pack_format": 32,
+    "min_format": 32,
+    "max_format": 2147483647,
+    "description": {
+      "text": "By §2MrGlitchDogePE§r§f§r for\n§a1.21+§r §ecompatible with§r §eSodium§r"
+    }
+  }
+}
