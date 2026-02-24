@@ -183,5 +183,13 @@
         "max_format": 2147483647
       }
     ]
+  },
+  "sodium": {
+    "ignored_shaders": [
+      "terrain.fsh",
+      "terrain.vsh",
+      "fog.glsl",
+      "fog_classic.glsl"
+    ]
   }
 }
