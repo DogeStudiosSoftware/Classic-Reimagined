@@ -1,0 +1,187 @@
+{
+  "pack": {
+    "pack_format": 15,
+    "supported_formats": [
+      15,
+      2147483647
+    ],
+    "min_format": 15,
+    "max_format": 2147483647,
+    "description": "By §2MrGlitchDogePE§r§f§r\n§ecompatible with§r §f§r §e&§r §f§r"
+  },
+  "overlays": {
+    "entries": [
+      {
+        "directory": "legacy_lighting",
+        "formats": [
+          18,
+          34
+        ],
+        "min_format": 18,
+        "max_format": 34
+      },
+      {
+        "directory": "1.20.2_shaders",
+        "formats": [
+          18,
+          22
+        ],
+        "min_format": 18,
+        "max_format": 22
+      },
+      {
+        "directory": "1.21.0_shaders",
+        "formats": [
+          32,
+          34
+        ],
+        "min_format": 32,
+        "max_format": 34
+      },
+      {
+        "directory": "1.21.2_shaders",
+        "formats": [
+          42,
+          55
+        ],
+        "min_format": 42,
+        "max_format": 55
+      },
+      {
+        "directory": "1.21.6_environmental_fog",
+        "formats": [
+          63,
+          2147483647
+        ],
+        "min_format": 63,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "1.21.6_shaders",
+        "formats": [
+          63,
+          69
+        ],
+        "min_format": 63,
+        "max_format": 69
+      },
+      {
+        "directory": "1.21.9_shaders",
+        "formats": [
+          69,
+          69
+        ],
+        "min_format": 69,
+        "max_format": 69
+      },
+      {
+        "directory": "1.21.11_shaders",
+        "formats": [
+          75,
+          75
+        ],
+        "min_format": 75,
+        "max_format": 75
+      },
+      {
+        "directory": "26.1_shaders",
+        "formats": [
+          76,
+          2147483647
+        ],
+        "min_format": 76,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v8.10.31-Classic_Reimagined_8",
+        "formats": [
+          18,
+          2147483647
+        ],
+        "min_format": 18,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v8.10.32-Classic_Reimagined_8",
+        "formats": [
+          22,
+          2147483647
+        ],
+        "min_format": 22,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v10.0.1-Classic_Reimagined_10",
+        "formats": [
+          32,
+          2147483647
+        ],
+        "min_format": 32,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v10.0.2-Classic_Reimagined_10s",
+        "formats": [
+          42,
+          2147483647
+        ],
+        "min_format": 42,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v10.0.3-Classic_Reimagined_10_SE",
+        "formats": [
+          46,
+          2147483647
+        ],
+        "min_format": 46,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v10.0.4-Classic_Reimagined_10_SE_2",
+        "formats": [
+          55,
+          2147483647
+        ],
+        "min_format": 55,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v10.0.7-Classic_Reimagined_10_SE_2",
+        "formats": [
+          63,
+          2147483647
+        ],
+        "min_format": 63,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v10.0.9-Classic_Reimagined_10_SE_2",
+        "formats": [
+          69,
+          2147483647
+        ],
+        "min_format": 69,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v10.0.10-Classic_Reimagined_10_SE_2",
+        "formats": [
+          75,
+          2147483647
+        ],
+        "min_format": 75,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v10.0.11_1-Classic_Reimagined_10_SE_2.1",
+        "formats": [
+          76,
+          2147483647
+        ],
+        "min_format": 76,
+        "max_format": 2147483647
+      }
+    ]
+  }
+}
