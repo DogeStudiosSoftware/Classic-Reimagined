@@ -56,16 +56,23 @@ void main() {
     vec4 color = u_UseRGSS ? sampleRGSS(u_BlockTex, v_TexCoord, u_TexelSize) : sampleNearest(u_BlockTex, v_TexCoord, u_TexelSize);
     color *= v_Color; // Apply per-vertex color modulator
     color = _linearFog(color, v_FragDistance, u_FogColor, u_EnvironmentFog, u_RenderFog, fadeFactor);
-
+    // visibleColor is the color of the fragment after applying fog, but before applying darkness from distance
+    vec4 visibleColor = vec4(1.0);
+    visibleColor = _linearFog(visibleColor, v_FragDistance, vec4(0.0, 0.0, 0.0, color.a), u_EnvironmentFog, u_RenderFog, fadeFactor);
+// discard fragments that are below the alpha cutoff threshold, if the material uses alpha testing
 #ifdef USE_FRAGMENT_DISCARD
     if (color.a < _material_alpha_cutoff(v_Material)) {
         discard;
     }
 #endif
-
-    if (color.rgb == u_FogColor.rgb) {
+// fragcolor calculation is done, now apply darkness from distance
+    if (visibleColor.rgb == vec4(0.0).rgb) {
         discard;
     } else {
-        fragColor = color;
+        if (color.rgb == u_FogColor.rgb) {
+            discard;
+            } else {
+                fragColor = color;
+        }
     }
 }
