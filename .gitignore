@@ -1,12 +1,12 @@
 # Ignore everything by default
 *
 
-# Allow these directories
-!/Classic-Reimagined/
-!/Classic-Reimagined-Lite/
-!/Classic-Reimagined-Modded/
+# Allow these directories and all their contents
+!/Classic-Reimagined/**
+!/Classic-Reimagined-Lite/**
+!/Classic-Reimagined-Modded/**
 
-# Allow these files
+# Allow these files at root
 !/.gitattributes
 !/LICENSE
 !/README.md
