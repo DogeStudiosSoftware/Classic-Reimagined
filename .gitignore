@@ -1,6 +1,3 @@
-# Ignore everything by default
-*
-
 # Allow these directories and all their contents
 !/Classic-Reimagined/**
 !/Classic-Reimagined-Lite/**
