@@ -11,11 +11,6 @@
 /Classic-Reimagined-Lite/**
 /Classic-Reimagined-Modded/**
 
-# Also allow subdirectories themselves to be traversed
-!/Classic-Reimagined/**/
-!/Classic-Reimagined-Lite/**/
-!/Classic-Reimagined-Modded/**/
-
 # Allow these files at root
 !/.gitattributes
 !/LICENSE
