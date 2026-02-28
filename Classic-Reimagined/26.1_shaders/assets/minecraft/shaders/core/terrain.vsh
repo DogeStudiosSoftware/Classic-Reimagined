@@ -4,7 +4,7 @@
 #moj_import <minecraft:globals.glsl>
 #moj_import <minecraft:chunksection.glsl>
 #moj_import <minecraft:projection.glsl>
-#moj_import <minecraft:smooth_lighting.glsl>
+#moj_import <minecraft:sample_lightmap.glsl>
 
 in vec3 Position;
 in vec4 Color;
@@ -26,7 +26,7 @@ void main() {
     sphericalVertexDistance = fog_spherical_distance(pos);
     cylindricalVertexDistance = fog_cylindrical_distance(pos);
 
-    vec4 lightMapColor = minecraft_sample_lightmap(Sampler2, UV2);
+    vec4 lightMapColor = sample_lightmap(Sampler2, UV2);
 
     vec4 targetColor = vec4(229.0 / 255.0, 229.0 / 255.0, 229.0 / 255.0, 1.0);
     float tolerance = 0.001;

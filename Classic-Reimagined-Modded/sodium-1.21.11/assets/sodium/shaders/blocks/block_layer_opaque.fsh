@@ -55,6 +55,7 @@ vec4 sampleRGSS(sampler2D sourcer, vec2 uv, vec2 pixelSize) {
 void main() {
     vec4 color = u_UseRGSS ? sampleRGSS(u_BlockTex, v_TexCoord, u_TexelSize) : sampleNearest(u_BlockTex, v_TexCoord, u_TexelSize);
     color *= v_Color; // Apply per-vertex color modulator
+    color = _linearFog(color, v_FragDistance, u_FogColor, u_EnvironmentFog, u_RenderFog, fadeFactor);
 
 #ifdef USE_FRAGMENT_DISCARD
     if (color.a < _material_alpha_cutoff(v_Material)) {
@@ -62,5 +63,9 @@ void main() {
     }
 #endif
 
-    fragColor = _linearFog(color, v_FragDistance, u_FogColor, u_EnvironmentFog, u_RenderFog, fadeFactor);
+    if (color.rgb == u_FogColor.rgb) {
+        discard;
+    } else {
+        fragColor = color;
+    }
 }

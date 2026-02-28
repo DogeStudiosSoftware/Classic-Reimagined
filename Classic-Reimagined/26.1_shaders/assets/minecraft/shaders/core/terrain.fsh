@@ -47,20 +47,16 @@ vec4 sampleRGSS(sampler2D sourcer, vec2 uv, vec2 pixelSize) {
 
 void main() {
     vec4 color = (UseRgss == 1 ? sampleRGSS(Sampler0, texCoord0, 1.0f / TextureSize) : sampleNearest(Sampler0, texCoord0, 1.0f / TextureSize)) * vertexColor;
-    color = mix(FogColor * vec4(1, 1, 1, color.a), color, ChunkVisibility);
+    color.rgb = mix(color.rgb, FogColor.rgb, total_fog_value(sphericalVertexDistance, cylindricalVertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd, FogRenderDistanceStart, FogRenderDistanceEnd));
 #ifdef ALPHA_CUTOUT
     if (color.a < ALPHA_CUTOUT) {
         discard;
     }
 #endif
-    fragColor = apply_fog(
-		color,
-		sphericalVertexDistance * ChunkVisibility,
-		cylindricalVertexDistance * ChunkVisibility,
-		FogEnvironmentalStart * ChunkVisibility,
-		FogEnvironmentalEnd * ChunkVisibility,
-		FogRenderDistanceStart * ChunkVisibility,
-		FogRenderDistanceEnd * ChunkVisibility,
-		FogColor
-	);
+    if (linear_fog_value(sphericalVertexDistance, FogRenderDistanceEnd, FogRenderDistanceEnd) == 1.0) {
+        discard;
+    }
+    if (linear_fog_value(sphericalVertexDistance, FogRenderDistanceEnd, FogRenderDistanceEnd) < 1.0) {
+        fragColor = color;
+    }
 }
