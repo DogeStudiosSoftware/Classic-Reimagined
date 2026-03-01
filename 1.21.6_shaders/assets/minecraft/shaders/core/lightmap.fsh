@@ -41,7 +41,7 @@ int spread(float f, int x) {
 void main() {
     int block_light = spread(texCoord.x, 15);
     int sky_light = spread(texCoord.y, 15);
-    int sky_factor = clamp(spread(1.0 - lightmapInfo.SkyFactor, 15), 0, 11);
+    int sky_factor = spread(pow(1 - lightmapInfo.SkyFactor, 1.15), 15);
 
     // Subtract sky_factor from sky_light and clamp the result
     int adjusted_sky = clamp(sky_light - sky_factor, 0, 15);
