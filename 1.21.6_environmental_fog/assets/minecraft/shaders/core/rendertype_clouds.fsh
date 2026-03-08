@@ -7,14 +7,12 @@ in vec4 vertexColor;
 out vec4 fragColor;
 
 void main() {
-    vec4 color = vertexColor;
+    vec4 color = vec4(1.0, 1.0, 1.0, 1.0);
+    color.rgb *= mix(vertexColor.rgb, FogColor.rgb, total_fog_value(vertexDistance, vertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd, FogRenderDistanceStart, FogRenderDistanceEnd));
+    color.a *= vertexColor.a;
     // fog color calculation
-    color.rgb = 
-    mix(color.rgb, FogColor.rgb, total_fog_value(vertexDistance, vertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd, FogRenderDistanceStart, FogRenderDistanceEnd));
     // alpha calculation
-    color.a *= 1.0f - mix(0.0,
-    linear_fog_value(vertexDistance, 0, FogCloudsEnd),
-    linear_fog_value(vertexDistance, min(FogCloudsEnd, FogRenderDistanceEnd) / 16, FogCloudsEnd));
+    // if the fog is fully opaque, use the fog color, otherwise use the vertex color
     fragColor = color;
 }
     
