@@ -13,9 +13,7 @@ layout(std140) uniform Fog {
 #moj_import <fog_classic.glsl>
 
 float fog_cylindrical_distance(vec3 pos) {
-  float distXZ = length(pos.xz);
-  float distY = abs(pos.y);
-  return max(distXZ, distY);
+  return abs(pos.y);
 }
 
 float fog_spherical_distance(vec3 pos) {
