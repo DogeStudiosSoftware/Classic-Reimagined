@@ -86,10 +86,10 @@
       {
         "directory": "26.1_shaders",
         "formats": [
-          76,
+          84,
           2147483647
         ],
-        "min_format": 76,
+        "min_format": 84,
         "max_format": 2147483647
       },
       {
@@ -176,10 +176,10 @@
       {
         "directory": "v10.0.11_1-Classic_Reimagined_10_SE_2.1",
         "formats": [
-          76,
+          84,
           2147483647
         ],
-        "min_format": 76,
+        "min_format": 84,
         "max_format": 2147483647
       }
     ]
