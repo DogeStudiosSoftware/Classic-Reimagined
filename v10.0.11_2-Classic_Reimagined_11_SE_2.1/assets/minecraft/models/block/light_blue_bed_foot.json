@@ -1,6 +1,0 @@
-﻿{
-    "textures":  {
-                     "1":  "minecraft:block/light_blue_bed"
-                 },
-    "parent":  "minecraft:block/bed_foot"
-}
