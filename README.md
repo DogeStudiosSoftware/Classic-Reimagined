@@ -3,3 +3,6 @@ You can download Classic Reimagined from [Modrinth](https://modrinth.com/resourc
 
 # Credits:
 All listed within in-game credits
+
+# Showcase video
+[![Watch the video](https://img.youtube.com/vi/Ovu0cAG6KOY/0.jpg)](https://www.youtube.com/watch?v=Ovu0cAG6KOY)
