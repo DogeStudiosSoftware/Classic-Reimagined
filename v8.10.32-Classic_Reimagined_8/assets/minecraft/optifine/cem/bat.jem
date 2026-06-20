@@ -42,8 +42,10 @@
 							],
 							"submodels": [
 								{
+									"id": "body_sub_2",
 									"invertAxis": "xy",
 									"mirrorTexture": "u",
+									"translate": [0, 0, 0],
 									"boxes": [
 										{"coordinates": [1, 2, -2, 3, 4, 1], "textureOffset": [24, 0]}
 									]
@@ -64,60 +66,49 @@
 						{
 							"id": "wings",
 							"invertAxis": "xy",
-							"translate": [0, -3.5, 0],
+							"translate": [0, -3.5, 0]
+						}
+					]
+				},
+				{
+					"id": "wings2",
+					"invertAxis": "xy",
+					"translate": [0, 7, 0],
+					"submodels": [
+						{
+							"id": "right_wing2",
+							"invertAxis": "xy",
+							"translate": [2, 8, 1.5],
+							"boxes": [
+								{"coordinates": [0, -8, 0, 10, 16, 0], "textureOffset": [43, 1]}
+							],
 							"submodels": [
 								{
-									"id": "right_entire_wing2",
+									"id": "outer_right_wing2",
 									"invertAxis": "xy",
-									"translate": [4.25, 7.25, 5.1],
-									"rotate": [7.5, 72.5, -7.5],
-									"submodels": [
-										{
-											"id": "right_wing2",
-											"invertAxis": "xy",
-											"translate": [2, -9.8, 1.25],
-											"boxes": [
-												{"coordinates": [0, -8, 0, 10, 16, 0], "textureOffset": [43, 1]}
-											],
-											"submodels": [
-												{
-													"id": "outer_right_wing2",
-													"invertAxis": "xy",
-													"translate": [10, 0, 0],
-													"boxes": [
-														{"coordinates": [0, -6, 0, 8, 12, 0], "textureOffset": [25, 17]}
-													]
-												}
-											]
-										}
+									"translate": [10, 0.5, 0],
+									"boxes": [
+										{"coordinates": [0, -5.5, 0, 8, 11, 0], "textureOffset": [25, 17]}
 									]
-								},
+								}
+							]
+						},
+						{
+							"id": "left_wing2",
+							"invertAxis": "xy",
+							"mirrorTexture": "u",
+							"translate": [-2, 8, 1.5],
+							"boxes": [
+								{"coordinates": [-10, -8, 0, 10, 16, 0], "textureOffset": [43, 1]}
+							],
+							"submodels": [
 								{
-									"id": "left_entire_wing2",
+									"id": "outer_left_wing2",
 									"invertAxis": "xy",
-									"translate": [-3, 7.5, 4],
-									"rotate": [7.5, -72.5, 7.5],
-									"submodels": [
-										{
-											"id": "left_wing2",
-											"invertAxis": "xy",
-											"mirrorTexture": "u",
-											"translate": [-1.275, -9.675, 2.7],
-											"boxes": [
-												{"coordinates": [-10, -8, 0, 10, 16, 0], "textureOffset": [43, 1]}
-											],
-											"submodels": [
-												{
-													"id": "outer_left_wing2",
-													"invertAxis": "xy",
-													"mirrorTexture": "u",
-													"translate": [-10, 0, 0],
-													"boxes": [
-														{"coordinates": [-8, -6, 0, 8, 12, 0], "textureOffset": [25, 17]}
-													]
-												}
-											]
-										}
+									"mirrorTexture": "u",
+									"translate": [-10, 0.5, 0],
+									"boxes": [
+										{"coordinates": [-8, -5.5, 0, 8, 11, 0], "textureOffset": [25, 17]}
 									]
 								}
 							]
@@ -128,27 +119,15 @@
 			"animations": [
 				{
 					"head1.rx": "head.rx - body.rx",
-					"right_wing2.ry": "right_wing.ry + torad(18)",
+					"right_wing2.ry": "right_wing.ry - torad(45)",
+					"left_wing2.ry": "left_wing.ry + torad(45)",
 					"outer_right_wing2.ry": "outer_right_wing.ry",
-					"left_wing2.ry": "-right_wing2.ry",
-					"outer_left_wing2.ry": "-outer_right_wing2.ry",
+					"outer_left_wing2.ry": "outer_left_wing.ry",
 					"part.sx": "0.5",
 					"part.sy": "0.5",
 					"part.sz": "0.5"
 				}
 			]
-		},
-		{
-			"part": "left_wing",
-			"id": "left_wing",
-			"invertAxis": "xy",
-			"translate": [1.5, -7, 0]
-		},
-		{
-			"part": "outer_left_wing",
-			"id": "outer_left_wing",
-			"invertAxis": "xy",
-			"translate": [3.5, -7, 0]
 		},
 		{
 			"part": "right_wing",
@@ -157,10 +136,22 @@
 			"translate": [-1.5, -7, 0]
 		},
 		{
+			"part": "left_wing",
+			"id": "left_wing",
+			"invertAxis": "xy",
+			"translate": [1.5, -7, 0]
+		},
+		{
 			"part": "outer_right_wing",
 			"id": "outer_right_wing",
 			"invertAxis": "xy",
 			"translate": [-3.5, -7, 0]
+		},
+		{
+			"part": "outer_left_wing",
+			"id": "outer_left_wing",
+			"invertAxis": "xy",
+			"translate": [3.5, -7, 0]
 		},
 		{
 			"part": "feet",
