@@ -1,0 +1,5 @@
+{
+  "targets": ["minecraft:the_nether"],
+  "fog_radius": 1024,
+  "fog_fade": 0
+}

@@ -1,0 +1,11 @@
+{
+  "targets": [
+    "minecraft:nether_wastes",
+    "minecraft:warped_forest",
+    "minecraft:crimson_forest",
+    "minecraft:soul_sand_valley",
+    "minecraft:basalt_deltas"
+  ],
+  "fog_radius": 1024,
+  "fog_fade": 0
+}

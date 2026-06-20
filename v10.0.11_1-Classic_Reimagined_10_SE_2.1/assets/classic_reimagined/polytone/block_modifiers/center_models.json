@@ -1,0 +1,10 @@
+{
+  "targets": [
+    {"id": "#c:flowers", "required": false},
+    {"id": "#forge:flowers", "required": false},
+    {"id": "#minecraft:flowers", "required": false},
+    "minecraft:bamboo",
+    "minecraft:bamboo_sapling"
+  ],
+  "offset_type": "none"
+}
