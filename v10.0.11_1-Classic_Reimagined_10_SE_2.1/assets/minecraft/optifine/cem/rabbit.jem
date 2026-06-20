@@ -17,16 +17,16 @@
 						{
 							"id": "head2",
 							"invertAxis": "xy",
-							"translate": [0, 5.75, -9],
+							"translate": [0, 6, -10.5],
 							"boxes": [
-								{"coordinates": [-2.5, -1.75, -5, 5, 4, 5], "textureOffset": [32, 0]},
-								{"coordinates": [-0.5, -0.75, -5.4, 1, 1, 1], "textureOffset": [32, 9]}
+								{"coordinates": [-0.5, -1, -4, 1, 1, 1], "textureOffset": [32, 9]},
+								{"coordinates": [-2.5, -2, -3.5, 5, 4, 5], "textureOffset": [32, 0]}
 							],
 							"submodels": [
 								{
 									"id": "right_ear2",
 									"invertAxis": "xy",
-									"translate": [1.4, 2.25, -1],
+									"translate": [1.5, 2, 0.5],
 									"boxes": [
 										{"coordinates": [-1, 0, -0.5, 2, 5, 1], "textureOffset": [52, 0]}
 									]
@@ -34,9 +34,9 @@
 								{
 									"id": "left_ear2",
 									"invertAxis": "xy",
-									"translate": [-1.4, 2.15, -1],
+									"translate": [-1.5, 2, 0.5],
 									"boxes": [
-										{"coordinates": [-1, 0.1, -0.5, 2, 5, 1], "textureOffset": [58, 0]}
+										{"coordinates": [-1, 0, -0.5, 2, 5, 1], "textureOffset": [58, 0]}
 									]
 								}
 							]
