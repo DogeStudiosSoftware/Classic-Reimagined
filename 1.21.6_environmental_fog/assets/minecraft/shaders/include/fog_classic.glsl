@@ -15,9 +15,9 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
     return mix(
-        pow(clamp((sphericalVertexDistance) / min(renderDistanceEnd, environmentalEnd), 0.0, 1.0), (renderDistanceEnd / renderDistanceStart) * 1.75),
+        pow(clamp((sphericalVertexDistance) / min(renderDistanceEnd, environmentalEnd), 0.0, 1.0), 1.4),
         1.0,
-        (0.5 - environmentalStart) / (environmentalEnd - environmentalStart)
+        clamp((0.5 - environmentalStart) / (environmentalEnd - environmentalStart), 0.0, 1.0)
     );
 };
 
