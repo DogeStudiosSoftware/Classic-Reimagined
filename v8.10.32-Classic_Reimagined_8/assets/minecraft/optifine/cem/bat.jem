@@ -27,7 +27,7 @@
 				{
 					"id": "head1",
 					"invertAxis": "xy",
-					"translate": [0, 23, 0],
+					"translate": [0, 14, 0],
 					"boxes": [
 						{"coordinates": [-3, -3, -3, 6, 6, 6], "textureOffset": [0, 0]}
 					],
@@ -57,7 +57,7 @@
 				{
 					"id": "body1",
 					"invertAxis": "xy",
-					"translate": [0, 20, 0],
+					"translate": [0, 11, 0],
 					"boxes": [
 						{"coordinates": [-5, -28, 0, 10, 16, 0], "textureOffset": [1, 35]},
 						{"coordinates": [-3, -12, -3, 6, 12, 6], "textureOffset": [0, 16]}
@@ -73,7 +73,7 @@
 				{
 					"id": "wings2",
 					"invertAxis": "xy",
-					"translate": [0, 7, 0],
+					"translate": [0, -2, 0],
 					"submodels": [
 						{
 							"id": "right_wing2",
