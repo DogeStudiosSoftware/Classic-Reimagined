@@ -1,0 +1,6 @@
+{
+  "parent": "block/leaves_untinted",
+  "textures": {
+    "all": "minecraft:block/orange_poplar_leaves"
+  }
+}

@@ -190,6 +190,15 @@
         ],
         "min_format": 88,
         "max_format": 2147483647
+      },
+      {
+        "directory": "v10.0.11_3-Classic_Reimagined_11_SE_2.1",
+        "formats": [
+          89,
+          2147483647
+        ],
+        "min_format": 89,
+        "max_format": 2147483647
       }
     ]
   },
