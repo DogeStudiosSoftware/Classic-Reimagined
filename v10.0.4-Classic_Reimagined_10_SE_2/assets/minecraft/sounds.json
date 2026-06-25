@@ -1425,6 +1425,51 @@
       }
     ]
   },
+  "block.leaf_litter.break": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.grass.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.leaf_litter.fall": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.grass.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.leaf_litter.hit": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.grass.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.leaf_litter.place": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.grass.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.leaf_litter.step": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.grass.break",
+        "type": "event"
+      }
+    ]
+  },
   "block.lily_pad.place": {
     "replace": true,
     "sounds": [
