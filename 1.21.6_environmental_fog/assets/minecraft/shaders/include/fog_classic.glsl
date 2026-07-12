@@ -14,19 +14,22 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
 }
 
 float classic_fog_value(float vertexDistance, float fogStart, float fogEnd) {
-    float fogFactor = 1.0f - sqrt(1.0f - pow(linear_fog_value(vertexDistance, 0, fogEnd), 2.0));
-    float fogValue = sqrt(max(linear_fog_value(vertexDistance, fogStart, fogEnd), fogFactor));
-    float fogValue2 = linear_fog_value(vertexDistance, 0, fogEnd) - 0.375 * (1 - linear_fog_value(vertexDistance, 0, fogEnd));
-    return clamp(min(fogValue, fogValue2), 0.0, 1.0);
+    float fogRange = linear_fog_value(vertexDistance, fogStart / 4, fogEnd * 1.25);
+    float fogRangePass = 1.0f - sqrt(1.0f - pow(linear_fog_value(vertexDistance, 0, fogEnd), 2));
+    float fogRangePass2 = pow(linear_fog_value(vertexDistance, 0, fogEnd), 3.29);
+    return max(max(fogRange, fogRangePass), fogRangePass2);
 }
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
-    return mix(
-        max(classic_fog_value(sphericalVertexDistance, renderDistanceStart, renderDistanceEnd),
-        classic_fog_value(sphericalVertexDistance, environmentalStart, environmentalEnd)),
+    if (renderDistanceEnd <= environmentalEnd) {
+        return mix(
+        classic_fog_value(sphericalVertexDistance, renderDistanceStart, renderDistanceEnd),
         1.0,
         clamp((0.0 - environmentalStart) / (environmentalEnd - environmentalStart), 0.0, 1.0)
-    );
+        );
+    } else {
+        return linear_fog_value(sphericalVertexDistance, environmentalStart, environmentalEnd);
+    }
 };
 
 vec4 apply_fog(vec4 inColor, float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd, vec4 fogColor) {
