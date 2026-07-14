@@ -17,7 +17,7 @@ float classic_fog_value(float vertexDistance, float fogStart, float fogEnd) {
     float farPlaneDistance = fogEnd * 0.25;
     float fogFactor = linear_fog_value(vertexDistance, farPlaneDistance, fogEnd * sqrt(2));
     float fogFactor2 = pow(1.0f - sqrt(1.0f - pow(linear_fog_value(vertexDistance, 0, fogEnd), 2.0)), 2.0);
-    return pow(fogFactor, 1.0f - fogFactor2);
+    return pow(pow(fogFactor, 1.0f - fogFactor2), 0.75);
 }
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
