@@ -14,10 +14,12 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
 }
 
 float classic_fog_value(float vertexDistance, float fogStart, float fogEnd) {
-    float farPlaneDistance = fogEnd * 0.25;
-    float fogFactor = linear_fog_value(vertexDistance, farPlaneDistance, fogEnd * sqrt(2));
-    float fogFactor2 = pow(1.0f - sqrt(1.0f - pow(linear_fog_value(vertexDistance, 0, fogEnd), 2.0)), 2.0);
-    return pow(pow(fogFactor, 1.0f - fogFactor2), 0.75);
+    float fogValue = sqrt(1.0f - pow(linear_fog_value(vertexDistance, fogStart, fogEnd), 2.0));
+    float smoothFogValue = clamp(smoothstep(0, fogEnd / 1.5, vertexDistance), 0.0, 1.0);
+    float ultraSmoothFogValue = pow(pow(smoothFogValue, 1.0f - smoothFogValue), 2.0f);
+    float RealisticFogValue = linear_fog_value(vertexDistance, 0, fogEnd * 1.25);
+    float ultraRealisticFogValue = mix(0, RealisticFogValue, ultraSmoothFogValue);
+    return pow(max(ultraRealisticFogValue, 1.0f - sqrt(1.0f - pow(linear_fog_value(vertexDistance, 0, fogEnd), 2.0f))), sqrt(1.0f - pow(linear_fog_value(vertexDistance, fogStart, fogEnd), 2.0f)));
 }
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
