@@ -51,10 +51,10 @@
         "directory": "1.21.6_environmental_fog",
         "formats": [
           63,
-          2147483647
+          88
         ],
         "min_format": 63,
-        "max_format": 2147483647
+        "max_format": 88
       },
       {
         "directory": "1.21.6_shaders",
@@ -95,10 +95,10 @@
       {
         "directory": "26.3_shaders",
         "formats": [
-          90,
+          93,
           2147483647
         ],
-        "min_format": 90,
+        "min_format": 93,
         "max_format": 2147483647
       },
       {
