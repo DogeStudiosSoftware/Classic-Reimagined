@@ -15,22 +15,20 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
 
 float classic_fog_value(float vertexDistance, float fogStart, float fogEnd) {
     float fogValue = sqrt(1.0f - pow(linear_fog_value(vertexDistance, 0, fogEnd), 2.0));
-    float shortFogValue = smoothstep(0, fogEnd * 1.5, vertexDistance);
-    float smoothFogValue = pow(shortFogValue, 1.0f - shortFogValue);
-    float smootherFogValue = pow(pow(pow(pow(smoothFogValue, 1.0f - smoothFogValue), 1.0f - smoothFogValue), 1.0f - smoothFogValue), 1.0f - smoothFogValue);
-    float envFogValue = sqrt(linear_fog_value(vertexDistance, 0, fogEnd * 4.0));
-    return pow(pow(envFogValue * smootherFogValue, fogValue), sqrt(1.0f - pow(linear_fog_value(vertexDistance, fogStart, fogEnd), 2.0))); 
+    float golden_ratio = (1.0 + sqrt(5.0)) / 2.0;
+    float realistic_fog_value = pow(clamp(vertexDistance / fogEnd, 0.0, 1.0), pow(clamp(vertexDistance / fogEnd, 0.0, 1.0), -1.0) / 2) / golden_ratio;
+    return pow(realistic_fog_value, sqrt(1.0f - linear_fog_value(vertexDistance, fogStart, fogEnd))); 
 }
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
-    float classicEnd = min(environmentalEnd, renderDistanceEnd) * (32 + sqrt(2.0) / 3.0f) / 32.0f;
+    float classicEnd = min(environmentalEnd, renderDistanceEnd);
     float classicStart = classicEnd * 0.75;
     return mix(
         classic_fog_value(sphericalVertexDistance, classicStart, classicEnd),
         1.0,
         clamp((0.0 - environmentalStart) / (environmentalEnd - environmentalStart), 0.0, 1.0)
     );
-};
+}
 
 vec4 apply_fog(vec4 inColor, float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd, vec4 fogColor) {
     float fogValue = total_fog_value(sphericalVertexDistance, cylindricalVertexDistance, environmentalStart, environmentalEnd, renderDistanceStart, renderDistanceEnd);
