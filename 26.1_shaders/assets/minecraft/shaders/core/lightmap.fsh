@@ -27,6 +27,8 @@ int spread(float f, int x) {
     return clamp(int(floor(f * float(x + 1))), 0, x);
 }
 
+float bright_factor = floor(lightmapInfo.BrightnessFactor * 100) / 100;
+
 void main() {
     int block_light = spread(texCoord.x, 15);
     int sky_light = spread(texCoord.y, 15);
@@ -53,6 +55,7 @@ void main() {
         }
     }
 
-    color = clamp(color, 0.0, 1.0);
-    fragColor = pow(vec4(color, 1.0), vec4(1.0 / (1.0 + lightmapInfo.BrightnessFactor)));
+    float reimagined_brightness = pow(bright_factor, 2) - (2.5 * bright_factor) + 2.0;
+    color = pow(clamp(color, 0.0, 1.0), vec3(reimagined_brightness));
+    fragColor = vec4(color, 1.0);
 }
