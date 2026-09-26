@@ -1,5 +1,0 @@
-{
-  "require_mods": ["fabric"],
-  "targets": [{"id": "minecraft:water_cauldron", "required": false}],
-  "render_type": "translucent"
-}
