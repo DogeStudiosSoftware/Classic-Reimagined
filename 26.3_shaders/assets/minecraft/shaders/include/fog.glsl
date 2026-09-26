@@ -26,13 +26,13 @@ float classic_fog_value(float vertexDistance, float fogStart, float fogEnd) {
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
     float classicEnd = min(renderDistanceEnd, environmentalEnd);
-    float classicStart = classicEnd * 0.25;
-    if (environmentalStart == 10.0 && environmentalEnd == 96.0) { // classic nether fog, use render distance fog properties
-        classicEnd = renderDistanceStart;
-        classicStart = 0.0;
+    float classicStart = (environmentalStart / environmentalEnd) * classicEnd;
+    if (environmentalEnd > renderDistanceEnd) {
+        classicStart = mix(classicEnd * 0.25, classicStart, pow(linear_fog_value(0.0, environmentalStart, environmentalEnd), 0.2));
     }
-    if (environmentalStart == -8.0 && environmentalEnd <= 96.0) { // water fog, use render distance fog properties
-        classicStart = min(classicEnd * 0.25, (environmentalStart / environmentalEnd) * classicEnd);
+    if (environmentalStart == 10.0 && environmentalEnd == 96.0) {
+        // classic nether fog, use render distance fog properties
+        classicEnd = renderDistanceStart;
     }
     return classic_fog_value(sphericalVertexDistance, classicStart, classicEnd);
 }
