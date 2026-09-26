@@ -23,7 +23,13 @@ float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDist
     float classicEnd = min(renderDistanceEnd, environmentalEnd);
     float classicStart = min(classicEnd * 0.25, (environmentalStart / environmentalEnd) * classicEnd);
     if (environmentalEnd > renderDistanceEnd) {
-        classicStart = mix(classicEnd * 0.25, classicStart, pow(linear_fog_value(0.0, environmentalStart, environmentalEnd), 0.2));
+        float fogExp = -(1.0 / (sqrt(linear_fog_value(0.0, environmentalStart, environmentalEnd)) - 1.0));
+        classicStart = classicEnd / pow(4.0, fogExp);
+        return mix(
+            classic_fog_value(sphericalVertexDistance, classicStart, classicEnd),
+            classic_fog_value(sphericalVertexDistance, -classicStart, classicEnd),
+            clamp(fogExp - 1.0, 0.0, 1.0)
+        );
     }
     if (environmentalStart == 10.0 && environmentalEnd == 96.0) {
         // classic nether fog, use render distance fog properties
