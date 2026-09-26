@@ -21,7 +21,7 @@ float classic_fog_value(float vertexDistance, float fogStart, float fogEnd) {
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
     float classicEnd = min(renderDistanceEnd, environmentalEnd);
-    float classicStart = (environmentalStart / environmentalEnd) * classicEnd;
+    float classicStart = min(classicEnd * 0.25, (environmentalStart / environmentalEnd) * classicEnd);
     if (environmentalEnd > renderDistanceEnd) {
         classicStart = mix(classicEnd * 0.25, classicStart, pow(linear_fog_value(0.0, environmentalStart, environmentalEnd), 0.2));
     }
