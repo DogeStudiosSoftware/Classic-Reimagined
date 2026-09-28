@@ -18,7 +18,8 @@ float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDist
     float classicStart = classicEnd * 0.25;
     if (environmentalStart == -8.0 && environmentalEnd <= 96.0) {
         // classic water fog, uses exponential fog properties
-        float density = 0.05;
+        float mixel = clamp((classicEnd - 24.0) / 72.0, 0.0, 1.0);
+        float density = mix(0.1, 0.05, mixel);
         float exponential_fog_factor = 1.0 - clamp(exp(-density * sphericalVertexDistance), 0.0, 1.0);
         return pow(exponential_fog_factor, 1.0f - linear_fog_value(sphericalVertexDistance, 0, renderDistanceEnd));
     }
