@@ -18,12 +18,6 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
     return (vertexDistance - fogStart) / (fogEnd - fogStart);
 }
 
-float classic_fog_value(float vertexDistance, float fogStart, float fogEnd) {
-        float denom = fogEnd - fogStart;
-        float fogFactor = clamp((fogEnd - vertexDistance) / (denom + 0.001), 0.0, 1.0);
-    return mix(1.0, 0.0, fogFactor); 
-}
-
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
     float classicEnd = min(renderDistanceEnd, environmentalEnd);
     float classicStart = classicEnd * 0.25;
@@ -44,7 +38,7 @@ float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDist
         classicEnd = renderDistanceStart;
         classicStart = 0.0;
     }
-    return classic_fog_value(sphericalVertexDistance, classicStart, classicEnd);
+    return linear_fog_value(sphericalVertexDistance, classicStart, classicEnd);
 }
 
 vec4 apply_fog(vec4 inColor, float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd, vec4 fogColor) {
