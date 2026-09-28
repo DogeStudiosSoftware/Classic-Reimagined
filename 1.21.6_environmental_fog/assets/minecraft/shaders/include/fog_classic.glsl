@@ -21,13 +21,13 @@ float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDist
         float mixel = clamp((classicEnd - 24.0) / 72.0, 0.0, 1.0);
         float density = mix(0.1, 0.05, mixel);
         float exponential_fog_factor = 1.0 - clamp(exp(-density * sphericalVertexDistance), 0.0, 1.0);
-        return pow(exponential_fog_factor, 1.0f - linear_fog_value(sphericalVertexDistance, 0, renderDistanceEnd));
+        return exponential_fog_factor;
     }
     if (environmentalStart == 0.25 && environmentalEnd == 1.0) {
         // classic lava fog, uses exponential fog properties
         float density = 2.0;
         float exponential_fog_factor = 1.0 - clamp(exp(-density * sphericalVertexDistance), 0.0, 1.0);
-        return pow(exponential_fog_factor, 1.0f - linear_fog_value(sphericalVertexDistance, 0, renderDistanceEnd));
+        return exponential_fog_factor;
     }
     if (environmentalStart == 10.0 && environmentalEnd == 96.0) {
         // classic nether fog, use render distance fog properties
