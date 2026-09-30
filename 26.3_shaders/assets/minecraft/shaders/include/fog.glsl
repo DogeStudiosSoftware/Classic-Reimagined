@@ -18,21 +18,27 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
     return (vertexDistance - fogStart) / (fogEnd - fogStart);
 }
 
+float classic_fog_value(float vertexDistance, float density, float fogEnd) {
+    if (vertexDistance > fogEnd) {
+        return 1.0;
+    }
+    return 1.0 - clamp(exp(-density * vertexDistance), 0.0, 1.0);
+}
+
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
     float classicEnd = min(renderDistanceEnd, environmentalEnd);
     float classicStart = classicEnd * 0.25;
+    float FogDensity = 0.0;
     if (environmentalStart == -8.0 && environmentalEnd <= 96.0) {
-        // classic water fog, uses exponential fog properties
+        // water fog uses exponential fog
         float mixel = clamp((classicEnd - 24.0) / 72.0, 0.0, 1.0);
-        float density = mix(0.1, 0.05, mixel);
-        float exponential_fog_factor = 1.0 - clamp(exp(-density * sphericalVertexDistance), 0.0, 1.0);
-        return exponential_fog_factor;
+        FogDensity = mix(0.1, 0.05, mixel);
+        return classic_fog_value(sphericalVertexDistance, FogDensity, renderDistanceEnd);
     }
-    if (environmentalStart == 0.25 && environmentalEnd == 1.0) {
-        // classic lava fog, uses exponential fog properties
-        float density = 2.0;
-        float exponential_fog_factor = 1.0 - clamp(exp(-density * sphericalVertexDistance), 0.0, 1.0);
-        return exponential_fog_factor;
+    if (environmentalStart == -8.0 && environmentalEnd <= 96.0) {
+        // lava fog uses exponential fog
+        FogDensity = 2.0;
+        return classic_fog_value(sphericalVertexDistance, FogDensity, renderDistanceEnd);
     }
     if (environmentalStart == 10.0 && environmentalEnd == 96.0) {
         // classic nether fog, use render distance fog properties
