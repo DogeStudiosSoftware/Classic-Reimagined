@@ -30,7 +30,7 @@ float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDist
         FogDensity = mix(0.1, 0.05, mixel);
         return classic_fog_value(sphericalVertexDistance, FogDensity, renderDistanceEnd);
     }
-    if (environmentalStart == -8.0 && environmentalEnd <= 96.0) {
+    if (environmentalStart == 0.25 && environmentalEnd <= 1.0) {
         // lava fog uses exponential fog
         FogDensity = 2.0;
         return classic_fog_value(sphericalVertexDistance, FogDensity, renderDistanceEnd);
