@@ -136,7 +136,7 @@
 					"tail2.ry": "tail.ry",
 					"back_legs2.rx": "tail2.rx",
 					"feet.rx": "clamp(back_legs.rx + torad(22.5), 0, torad(90))",
-					"arms.rx": "torad(6.25) - body.rx",
+					"arms.rx": "torad(6.25) + body.rx",
 					"right_arm2.rx": "right_arm.rx",
 					"left_arm2.rx": "left_arm.rx",
 					"right_arm2.ry": "right_arm.ry",
