@@ -96,9 +96,18 @@
         "directory": "26.3_shaders",
         "formats": [
           93,
-          2147483647
+          98
         ],
         "min_format": 93,
+        "max_format": 98
+      },
+      {
+        "directory": "26.4_shaders",
+        "formats": [
+          99,
+          2147483647
+        ],
+        "min_format": 99,
         "max_format": 2147483647
       },
       {
