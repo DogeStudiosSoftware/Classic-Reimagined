@@ -42,7 +42,7 @@ vec3 sampleBackgroundColor(ivec2 pixelCoords) {
 #ifndef OIT_ALPHA_ONLY
 vec4 calculateFinalColor(vec4 color) {
     float environmentalValue = linear_fog_value(sphericalVertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd);
-    float renderDistanceValue = linear_fog_value(sphericalVertexDistance, FogRenderDistanceStart, FogRenderDistanceEnd);
+    float renderDistanceValue = 1.0f - sqrt(1.0f - pow(linear_fog_value(sphericalVertexDistance, 0.0, FogRenderDistanceEnd), 2.0));
 
     float environmentalBackgroundValue = smoothstep(ENVIRONMENTAL_BACKGROUND_BLEND_START, 1.0, environmentalValue);
 
