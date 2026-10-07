@@ -104,10 +104,10 @@
       {
         "directory": "26.4_shaders",
         "formats": [
-          99,
+          100,
           2147483647
         ],
-        "min_format": 99,
+        "min_format": 100,
         "max_format": 2147483647
       },
       {
@@ -216,6 +216,15 @@
           2147483647
         ],
         "min_format": 90,
+        "max_format": 2147483647
+      },
+      {
+        "directory": "v10.0.11_4-DogePack_Classic_11_Beta",
+        "formats": [
+          100,
+          2147483647
+        ],
+        "min_format": 100,
         "max_format": 2147483647
       }
     ]
