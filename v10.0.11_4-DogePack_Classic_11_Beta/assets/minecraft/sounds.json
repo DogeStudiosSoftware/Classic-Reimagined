@@ -270,6 +270,51 @@
       }
     ]
   },
+  "block.blue_ice.break": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.glass.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.blue_ice.fall": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.blue_ice.hit": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.blue_ice.place": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.blue_ice.step": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
   "block.bone_block.break": {
     "replace": true,
     "sounds": [
@@ -307,6 +352,51 @@
     ]
   },
   "block.bone_block.step": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.brittle_ice.break": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.glass.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.brittle_ice.fall": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.brittle_ice.hit": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.brittle_ice.place": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.brittle_ice.step": {
     "replace": true,
     "sounds": [
       {
@@ -1018,6 +1108,51 @@
     "sounds": [
       {
         "name": "block.wooden_door.open",
+        "type": "event"
+      }
+    ]
+  },
+  "block.frosted_ice.break": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.glass.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.frosted_ice.fall": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.frosted_ice.hit": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.frosted_ice.place": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.frosted_ice.step": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
         "type": "event"
       }
     ]
@@ -2275,6 +2410,51 @@
       }
     ],
     "subtitle": "subtitles.block.generic.footsteps"
+  },
+  "block.packed_ice.break": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.glass.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.packed_ice.fall": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.packed_ice.hit": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.packed_ice.place": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
+  },
+  "block.packed_ice.step": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "block.stone.break",
+        "type": "event"
+      }
+    ]
   },
   "block.packed_mud.fall": {
     "replace": true,
