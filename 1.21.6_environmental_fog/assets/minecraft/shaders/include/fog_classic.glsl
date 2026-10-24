@@ -14,7 +14,7 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
 }
 
 float classic_fog_value(float vertexDistance, float density) {
-    return clamp(vertexDistance / (1.0 / density), 0.0, 1.0);
+    return linear_fog_value(vertexDistance, 0.0, 1.0 / density);
 }
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
