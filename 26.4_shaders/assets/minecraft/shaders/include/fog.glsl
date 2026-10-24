@@ -19,30 +19,36 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
 }
 
 float classic_fog_value(float vertexDistance, float density) {
-    return 1.0 - clamp(exp(-density * vertexDistance), 0.0, 1.0);
+    return clamp(vertexDistance / (1.0 / density), 0.0, 1.0);
 }
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
     float classicEnd = min(renderDistanceEnd, environmentalEnd);
     float classicStart = classicEnd * 0.25;
-    float FogDensity = 0.0;
+    // water fog
+    float water_mixel = clamp((classicEnd - 24.0) / 72.0, 0.0, 1.0);
+    float WaterFogDensity = mix(0.1, 0.05, water_mixel);
+    float WaterEnvironmentalFogValue = classic_fog_value(sphericalVertexDistance, WaterFogDensity);
+    // lava fog
+    float lavaDensity = 2.0;
+    float LavaEnvironmentalFogValue = classic_fog_value(sphericalVertexDistance, lavaDensity);
+    // nether fog
+    float NetherFogDensity = 1.0 / renderDistanceEnd;
+    float NetherEnvironmentalFogValue = classic_fog_value(sphericalVertexDistance, NetherFogDensity);
     if (environmentalStart == -8.0 && environmentalEnd <= 96.0) {
-        // water fog uses exponential fog
-        float mixel = clamp((classicEnd - 24.0) / 72.0, 0.0, 1.0);
-        FogDensity = mix(0.1, 0.05, mixel);
-        return max(classic_fog_value(sphericalVertexDistance, FogDensity), linear_fog_value(cylindricalVertexDistance, renderDistanceStart, renderDistanceEnd));
+        // water fog
+        return WaterEnvironmentalFogValue;
     }
     if (environmentalStart == 0.25 && environmentalEnd <= 1.0) {
-        // lava fog uses exponential fog
-        FogDensity = 2.0;
-        return max(classic_fog_value(sphericalVertexDistance, FogDensity), linear_fog_value(cylindricalVertexDistance, renderDistanceStart, renderDistanceEnd));
+        // lava fog
+        return LavaEnvironmentalFogValue;
     }
     if (environmentalStart == 10.0 && environmentalEnd == 96.0) {
-        // classic nether fog, use render distance fog properties
-        classicEnd = renderDistanceStart;
-        classicStart = 0.0;
+        // nether fog
+        return NetherEnvironmentalFogValue;
+    } else {
+        return linear_fog_value(sphericalVertexDistance, classicStart, classicEnd);
     }
-    return linear_fog_value(sphericalVertexDistance, classicStart, classicEnd);
 }
 
 vec4 apply_fog(vec4 inColor, float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd, vec4 fogColor) {
