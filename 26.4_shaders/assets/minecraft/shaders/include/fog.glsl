@@ -28,10 +28,10 @@ float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDist
     // water fog
     float water_mixel = clamp((classicEnd - 24.0) / 72.0, 0.0, 1.0);
     float WaterFogDensity = mix(0.1, 0.03, water_mixel);
-    float WaterEnvironmentalFogValue = classic_fog_value(sphericalVertexDistance, WaterFogDensity);
+    float WaterEnvironmentalFogValue = pow(classic_fog_value(sphericalVertexDistance, WaterFogDensity), 1.0 / 1.5);
     // lava fog
     float lavaDensity = 2.0;
-    float LavaEnvironmentalFogValue = classic_fog_value(sphericalVertexDistance, lavaDensity);
+    float LavaEnvironmentalFogValue = 1.0f - exp(-lavaDensity * sphericalVertexDistance);
     // nether fog
     float NetherFogDensity = 1.0 / renderDistanceEnd;
     float NetherEnvironmentalFogValue = classic_fog_value(sphericalVertexDistance, NetherFogDensity);
