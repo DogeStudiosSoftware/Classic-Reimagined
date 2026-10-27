@@ -14,22 +14,23 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
 }
 
 float classic_fog_value(float vertexDistance, float density) {
-    return linear_fog_value(vertexDistance, 0.0, 1.0 / density);
+    return 1.0f - exp(-density * vertexDistance);
 }
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
     float classicEnd = min(renderDistanceEnd, environmentalEnd);
-    float classicStart = classicEnd * 0.25;
+    float classicStart = classicEnd * 0.25; // linear_fog_value(0.0, environmentalStart, environmentalEnd);
     // water fog
     float water_mixel = clamp((classicEnd - 24.0) / 72.0, 0.0, 1.0);
-    float WaterFogDensity = mix(0.1, 0.03, water_mixel);
-    float WaterEnvironmentalFogValue = pow(classic_fog_value(sphericalVertexDistance, WaterFogDensity), 1.0 / 1.5);
+    float WaterFogDensity = mix(0.4, 0.1, water_mixel);
+    float WaterEnvironmentalFogValue = classic_fog_value(sphericalVertexDistance, WaterFogDensity);
     // lava fog
     float lavaDensity = 2.0;
     float LavaEnvironmentalFogValue = 1.0f - exp(-lavaDensity * sphericalVertexDistance);
     // nether fog
-    float NetherFogDensity = 1.0 / renderDistanceEnd;
-    float NetherEnvironmentalFogValue = classic_fog_value(sphericalVertexDistance, NetherFogDensity);
+    float NetherEnvironmentalFogValue = linear_fog_value(sphericalVertexDistance, 0.0, renderDistanceEnd);
+    // the fog behaves like in Minecraft beta 1.6.6 and console editions, aside from Pocket Edtion 0.6.1 and below.
+    // fog environmental overrides that are used for water, lava and nether fog and re-add the classic fog for all other cases
     if (environmentalStart == -8.0 && environmentalEnd <= 96.0) {
         // water fog
         return WaterEnvironmentalFogValue;
