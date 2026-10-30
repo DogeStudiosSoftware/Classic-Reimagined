@@ -23,7 +23,7 @@ float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDist
     float waterDensity = 0.1f;
     float lavaDensity = 2.0f;
     if (environmentalStart == -8.0) { // thick fog in spectator (lava, powdered snow) and water fog at 96 blocks
-        float thickFogDensity = 0.4 - (classicEnd / 320);
+        float thickFogDensity = 0.25f - (classicEnd / 640.f);
         return exponential_fog_value(sphericalVertexDistance, thickFogDensity);
     }
     if (environmentalStart == 0.25 && environmentalEnd == 1.0) { // lava fog in classic exponential fog mode
