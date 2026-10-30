@@ -18,36 +18,36 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
     return (vertexDistance - fogStart) / (fogEnd - fogStart);
 }
 
-float classic_fog_value(float vertexDistance, float density) {
+float exponential_fog_value(float vertexDistance, float density) {
     return 1.0f - exp(-density * vertexDistance);
 }
 
 float total_fog_value(float sphericalVertexDistance, float cylindricalVertexDistance, float environmentalStart, float environmentalEnd, float renderDistanceStart, float renderDistanceEnd) {
-    float classicEnd = min(renderDistanceEnd, environmentalEnd);
-    float classicStart = classicEnd * 0.25; // linear_fog_value(0.0, environmentalStart, environmentalEnd);
-    // water fog
-    float water_mixel = clamp((classicEnd - 24.0) / 72.0, 0.0, 1.0);
-    float WaterFogDensity = mix(0.4, 0.1, water_mixel);
-    float WaterEnvironmentalFogValue = classic_fog_value(sphericalVertexDistance, WaterFogDensity);
-    // lava fog
-    float lavaDensity = 2.0;
-    float LavaEnvironmentalFogValue = 1.0f - exp(-lavaDensity * sphericalVertexDistance);
-    // nether fog
-    float NetherEnvironmentalFogValue = linear_fog_value(sphericalVertexDistance, 0.0, renderDistanceEnd);
-    // the fog behaves like in Minecraft beta 1.6.6 and console editions, aside from Pocket Edtion 0.6.1 and below.
-    // fog environmental overrides that are used for water, lava and nether fog and re-add the classic fog for all other cases
-    if (environmentalStart == -8.0 && environmentalEnd <= 96.0) {
-        // water fog
-        return WaterEnvironmentalFogValue;
+    float classicEnd = min(environmentalEnd, renderDistanceEnd);
+    float classicStart = classicEnd * 0.25f;
+    float waterDensity = 0.1f;
+    float lavaDensity = 2.0f;
+    if (environmentalStart == -8.0) { // thick fog in spectator (lava, powdered snow) and water fog at 96 blocks
+        float thickFogDensity = 0.4 - (classicEnd / 320);
+        return exponential_fog_value(sphericalVertexDistance, thickFogDensity);
     }
-    if (environmentalStart == 0.25 && environmentalEnd <= 1.0) {
-        // lava fog
-        return LavaEnvironmentalFogValue;
+    if (environmentalStart == 0.25 && environmentalEnd == 1.0) { // lava fog in classic exponential fog mode
+        return exponential_fog_value(sphericalVertexDistance, lavaDensity);
     }
-    if (environmentalStart == 10.0 && environmentalEnd == 96.0) {
-        // nether fog
-        return NetherEnvironmentalFogValue;
-    } else {
+    if (environmentalStart == 0.0 && environmentalEnd == 5.0) { // lava with fire resistance fog in classic exponential fog mode
+        lavaDensity /= 5.0f;
+        return exponential_fog_value(sphericalVertexDistance, lavaDensity);
+    }
+    if (environmentalStart == 0.0 && environmentalEnd == 2.0) { // powder snow fog in classic exponential fog mode
+        float powderSnowDensity = 1.0f;
+        return exponential_fog_value(sphericalVertexDistance, powderSnowDensity);
+    }
+    // ####################################################################################################################
+    if (environmentalStart == 10.0 && environmentalEnd == 96.0) { // nether fog in classic linear fog mode
+        float dimDistance = 1.0 / renderDistanceEnd;
+        float dimFog = clamp(exponential_fog_value(sphericalVertexDistance, dimDistance) / (1.0f - exp(-1.0f)), 0.0f, 1.0f);
+        return dimFog;
+    } else { // overworld fog in classic linear fog mode -------------------------
         return linear_fog_value(sphericalVertexDistance, classicStart, classicEnd);
     }
 }
