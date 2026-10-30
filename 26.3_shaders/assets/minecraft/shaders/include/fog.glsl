@@ -18,7 +18,7 @@ float linear_fog_value(float vertexDistance, float fogStart, float fogEnd) {
     return (vertexDistance - fogStart) / (fogEnd - fogStart);
 }
 
-float classic_fog_value(float vertexDistance, float density) {
+float exponential_fog_value(float vertexDistance, float density) {
     return 1.0f - exp(-density * vertexDistance);
 }
 
